@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de QR</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Generador de QR</h2>
+
+  <div class="controls">
+    <input
+      type="text"
+      id="text"
+      placeholder=""
+    >
+    <button onclick="generateQR()">Generar QR</button>
+    <button onclick="copyQR()">Copiar QR</button>
+  </div>
+
+  <div id="qrcode"></div>
+
+  <!-- Librería QR -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+  <!-- Tu JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
+
