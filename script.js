@@ -39,3 +39,31 @@ async function copyQR() {
   });
 }
 
+function saveQRasJPG() {
+  const canvas = document.querySelector("#qrcode canvas");
+
+  if (!canvas) {
+    alert("Primero generá un QR");
+    return;
+  }
+
+  // Canvas auxiliar para JPG
+  const jpgCanvas = document.createElement("canvas");
+  jpgCanvas.width = canvas.width;
+  jpgCanvas.height = canvas.height;
+
+  const ctx = jpgCanvas.getContext("2d");
+
+  // Fondo blanco (JPG no soporta transparencia)
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, jpgCanvas.width, jpgCanvas.height);
+
+  // Dibujar QR
+  ctx.drawImage(canvas, 0, 0);
+
+  // Descargar JPG
+  const link = document.createElement("a");
+  link.download = "qr.jpg";
+  link.href = jpgCanvas.toDataURL("image/jpeg", 1.0);
+  link.click();
+}
